@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>kao</title>
+  <script src="https://unpkg.com/vue@3.2.37/dist/vue.global.js"></script>
+  <style>
+
+.all_waku {
+      width: 500px;
+      height: 500px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .absolute {
+      width: 500px;
+      height: 500px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      position: absolute;
+     
+    }
+    .number {
+      width: 500px;
+      height: 50px;
+          flex-grow: 6;
+          height: 100%;
+          flex-direction: column;
+        }
+    .button {
+      width: 500px;
+      height: 50px;
+      flex-shrink: 0;
+      background-color: rgb(96,165,250);
+      color: rgb(0, 0, 0);
+      border-radius: 0.25rem;
+      cursor: pointer;
+    }
+    /* ↑ここにCSSを書く。 */
+  </style>
+
+</head>
+<body>
+  <div id="app">
+    <div class="all_waku">
+      <img src="./kao.png" width="500" height="500">
+      <img id="kami_i" class="absolute" src="./kami/1.png" width="500" height="500">
+      <img id="me_i" class="absolute" src="./me/2.png" width="500" height="500">
+      <img id="kuti_i" class="absolute" src="./kuti/1.png" width="500" height="500">
+      <img id="huku_i" class="absolute" src="./huku/1.png" width="500" height="500">
+    </div>
+    <div class="number"><p class="button" @click="push">push</p></div>
+    <!-- ↑ここに表示するものを書く。 -->
+  </div>
+  
+  <script>
+    const App = {
+      setup() {
+        const push = () => {
+
+          let huku = Math.floor(Math.random() * 3);
+          let kami = Math.floor(Math.random() * 3);
+          let kuti = Math.floor(Math.random() * 5);
+          let me = Math.floor(Math.random() * 3);
+
+          if (huku == 0) document.getElementById("huku_i").src= "./huku/1.png";
+          if (huku == 1) document.getElementById("huku_i").src= "./huku/2.png";
+          if (huku == 2) document.getElementById("huku_i").src= "./huku/3.png";
+
+          if (kami == 0) document.getElementById("kami_i").src= "./kami/1.png";
+          if (kami == 1) document.getElementById("kami_i").src= "./kami/2.png";
+          if (kami == 2) document.getElementById("kami_i").src= "./kami/3.png";
+
+          if (kuti == 0) document.getElementById("kuti_i").src= "./kuti/1.png";
+          if (kuti == 1) document.getElementById("kuti_i").src= "./kuti/2.png";
+          if (kuti == 2) document.getElementById("kuti_i").src= "./kuti/3.png";
+          if (kuti == 3) document.getElementById("kuti_i").src= "./kuti/4.png";
+          if (kuti == 4) document.getElementById("kuti_i").src= "./kuti/5.png";
+
+          if (me == 0) document.getElementById("me_i").src= "./me/1.png";
+          if (me == 1) document.getElementById("me_i").src= "./me/2.png";
+          if (me == 2) document.getElementById("me_i").src= "./me/3.png";
+          }
+
+          return {
+            push,
+          }
+
+        // ↑ここにJavaScriptを書く。
+      }
+    } 
+
+    Vue.createApp(App).mount('#app')
+  </script>
+</body>
+</html>
